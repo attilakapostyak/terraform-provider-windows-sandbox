@@ -1,0 +1,45 @@
+*.dll
+*.exe
+.DS_Store
+example.tf
+terraform.tfplan
+terraform.tfstate
+bin/
+dist/
+modules-dev/
+/pkg/
+website/.vagrant
+website/.bundle
+website/build
+website/node_modules
+.vagrant/
+*.backup
+./*.tfstate
+.terraform/
+*.log
+*.bak
+*~
+.*.swp
+.idea
+*.iml
+*.test
+*.iml
+
+website/vendor
+
+# Test exclusions
+!command/test-fixtures/**/*.tfstate
+!command/test-fixtures/**/.terraform/
+
+# Windows Sandbox test configuration files
+test_*.wsb
+example-configuration.wsb*
+examples/basic_configuration/basic_configuration.wsb
+examples/mapped_folders/mapped_folders.wsb
+examples/logon_command/logon_command.wsb
+examples/team_configuration/playground-*.wsb
+
+# Keep windows files with windows line endings
+*.winfile eol=crlf
+
+temp/
