@@ -1,0 +1,19 @@
+<Configuration>
+	<!--// Managed by Terraform using Windows Sandbox provider: registry.terraform.io/hashicorp/windows-sandbox -->
+	<vGpu>Disable</vGpu>
+	<Networking>Enable</Networking>
+	<MemoryInMB>8192</MemoryInMB>
+	<MappedFolders>
+		<MappedFolder>
+			<HostFolder>C:\Users\Sofia\Downloads</HostFolder>
+			<SandboxFolder>C:\Users\WDAGUtilityAccount\Downloads</SandboxFolder>
+			<ReadOnly>false</ReadOnly>
+		</MappedFolder>
+	</MappedFolders>
+	<AudioInput>Enable</AudioInput>
+	<VideoInput>Enable</VideoInput>
+	<ProtectedClient>Enable</ProtectedClient>
+	<PrinterRedirection>Enable</PrinterRedirection>
+	<ClipboardRedirection>Enable</ClipboardRedirection>
+	<LogonCommand></LogonCommand>
+</Configuration>

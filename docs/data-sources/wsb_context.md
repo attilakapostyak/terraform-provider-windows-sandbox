@@ -4,6 +4,7 @@ The `windows-sandbox_context` data source helps to generate commonly used folder
 
 It is particularly useful when used with the `windows-sandbox_configuration` resource to create mapped folders within a Windows Sandbox configuration, ensuring paths are correctly set for both the host and sandbox environments.
 
+
 ## Arguments
 
 | Name                 | Type    | Description |
