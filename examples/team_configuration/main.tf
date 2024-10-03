@@ -1,12 +1,12 @@
 terraform {
   required_providers {
-    wsb = {
+    windows-sandbox = {
       source = "attilakapostyak/windows-sandbox"
     }
   }
 }
 
-provider "wsb" {
+provider "windows-sandbox" {
 }
 
 locals {
@@ -17,23 +17,23 @@ locals {
     for member in local.team_members :
     member => [
       {
-        host_folder    = data.wsb_context.example[member].user_downloads_folder
-        sandbox_folder = data.wsb_context.example[member].sandbox_container_user_downloads_folder
+        host_folder    = data.windows-sandbox_context.example[member].user_downloads_folder
+        sandbox_folder = data.windows-sandbox_context.example[member].sandbox_container_user_downloads_folder
         read_only      = false
       }
     ]
   }
 }
 
-data "wsb_context" "example" {
+data "windows-sandbox_context" "example" {
   for_each              = toset(local.team_members)
   username              = each.value
   users_folder          = "C:\\Users"
   downloads_folder_name = "Downloads"
 }
 
-# Create a separate wsb_configuration for each team member
-resource "wsb_configuration" "team" {
+# Create a separate windows-sandbox_configuration for each team member
+resource "windows-sandbox_configuration" "team" {
   for_each              = toset(local.team_members)
   name                  = "playground-${lower(each.value)}"
   path                  = "./"

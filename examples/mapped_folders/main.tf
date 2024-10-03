@@ -1,12 +1,12 @@
 terraform {
   required_providers {
-    wsb = {
+    windows-sandbox = {
       source = "attilakapostyak/windows-sandbox"
     }
   }
 }
 
-provider "wsb" {
+provider "windows-sandbox" {
 }
 
 locals {
@@ -19,7 +19,7 @@ locals {
   ]
 }
 
-resource "wsb_configuration" "example" {
+resource "windows-sandbox_configuration" "example" {
   name                  = "mapped_folders"
   path                  = "./"
   virtual_gpu           = false

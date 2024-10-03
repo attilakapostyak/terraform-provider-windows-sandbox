@@ -1,4 +1,4 @@
-# Data Source: `wsb_configuration`
+# Data Source: `windows-sandbox_configuration`
 
 This data source retrieves configuration details for a Windows Sandbox instance based on a provided configuration file.
 

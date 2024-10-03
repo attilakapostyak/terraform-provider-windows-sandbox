@@ -1,8 +1,8 @@
-# Data Source: `wsb_context`
+# Data Source: `windows-sandbox_context`
 
-The wsb_context data source helps to generate commonly used folder paths needed for mapping directories in a Windows Sandbox instance. This data source simplifies the retrieval of user-specific and sandbox-specific paths, which are essential when configuring folder mappings in sandbox environments.
+The `windows-sandbox_context` data source helps to generate commonly used folder paths needed for mapping directories in a Windows Sandbox instance. This data source simplifies the retrieval of user-specific and sandbox-specific paths, which are essential when configuring folder mappings in sandbox environments.
 
-It is particularly useful when used with the wsb_configuration resource to create mapped folders within a Windows Sandbox configuration, ensuring paths are correctly set for both the host and sandbox environments.
+It is particularly useful when used with the `windows-sandbox_configuration` resource to create mapped folders within a Windows Sandbox configuration, ensuring paths are correctly set for both the host and sandbox environments.
 
 ## Arguments
 
@@ -22,7 +22,7 @@ It is particularly useful when used with the wsb_configuration resource to creat
 
 ```hcl
 
-data "wsb_context" "example" {
+data "windows-sandbox_context" "example" {
   username              = "JohnDoe"
   users_folder          = "H:\\Users"
   downloads_folder_name = "Downloads"
@@ -31,14 +31,14 @@ data "wsb_context" "example" {
 locals {
   mapped_folders = [
     {
-      host_folder    = data.wsb_context.example.user_downloads_folder
-      sandbox_folder = data.wsb_context.example.sandbox_container_user_downloads_folder
+      host_folder    = data.windows-sandbox_context.example.user_downloads_folder
+      sandbox_folder = data.windows-sandbox_context.example.sandbox_container_user_downloads_folder
       read_only      = false
     }
   ]
 }
 
-resource "wsb_configuration" "main" {
+resource "windows-sandbox_configuration" "main" {
   name                  = "example-configuration"
   path                  = "./"
   virtual_gpu           = false

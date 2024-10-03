@@ -18,14 +18,14 @@ func TestAccExampleResource(t *testing.T) {
 			{
 				Config: testAccConfigurationResourceConfig("one"),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("wsb_configuration.test", "logon_command", "one"),
+					resource.TestCheckResourceAttr("windows-sandbox_configuration.test", "logon_command", "one"),
 				),
 			},
 			// Update and Read testing
 			{
 				Config: testAccConfigurationResourceConfig("two"),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("wsb_configuration.test", "logon_command", "two"),
+					resource.TestCheckResourceAttr("windows-sandbox_configuration.test", "logon_command", "two"),
 				),
 			},
 			// Delete testing automatically occurs in TestCase
@@ -39,7 +39,7 @@ func testAccConfigurationResourceConfig(logon_command string) string {
 	directory := filepath.Dir(ex)
 
 	return fmt.Sprintf(`
-	resource "wsb_configuration" "test" {
+	resource "windows-sandbox_configuration" "test" {
 		name                  = "example-configuration"
 		path                  = %[1]q
 		audio_input           = "true"

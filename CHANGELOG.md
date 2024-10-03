@@ -1,8 +1,8 @@
 ## 0.1.0 
 
 FEATURES:
-- Implementation of wsb_configuration resource
-- Implementation of wsb_logon_script resource
-- Implementation of wsb_configuration data source
-- Implementation of wsb_context data source
+- Implementation of windows-sandbox_configuration resource
+- Implementation of windows-sandbox_logon_script resource
+- Implementation of windows-sandbox_configuration data source
+- Implementation of windows-sandbox_context data source
 

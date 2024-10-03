@@ -43,3 +43,5 @@ examples/team_configuration/playground-*.wsb
 *.winfile eol=crlf
 
 temp/
+terraform.tfstate*
+terraform.tfstate.backup

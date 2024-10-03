@@ -1,6 +1,0 @@
-<Configuration>
-	<!--// Managed by Terraform using Windows Sandbox provider: attilakapostyak/windows-sandbox -->
-	<MappedFolders></MappedFolders>
-	<AudioInput>Enable</AudioInput>
-	<LogonCommand></LogonCommand>
-</Configuration>

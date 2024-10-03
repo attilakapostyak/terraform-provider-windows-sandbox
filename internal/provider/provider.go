@@ -33,7 +33,7 @@ type WSBProviderModel struct {
 }
 
 func (p *WSBProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
-	resp.TypeName = "wsb"
+	resp.TypeName = "windows-sandbox"
 	resp.Version = p.version
 }
 

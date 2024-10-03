@@ -5,10 +5,10 @@ This Terraform provider enables users to create and manage WSB files for definin
 
 ## Table of Contents
 
-- [Resource: wsb_configuration](#resource-wsb_configuration)
-- [Resource: wsb_logon_script](#resource-wsb_logon_script)
-- [Data Source: wsb_configuration](#data-source-wsb_configuration)
-- [Data Source: wsb_context](#data-source-wsb_context)
+- [Resource: windows-sandbox_configuration](#resource-windows-sandbox_configuration)
+- [Resource: windows-sandbox_logon_script](#resource-windows-sandbox_logon_script)
+- [Data Source: windows-sandbox_configuration](#data-source-windows-sandbox_configuration)
+- [Data Source: windows-sandbox_context](#data-source-windows-sandbox_context)
 
 ---
 
@@ -17,23 +17,23 @@ This Terraform provider enables users to create and manage WSB files for definin
 A basic provider configuration
 
 ```hcl
-provider "wsb" {
+provider "windows-sandbox" {
 
 }
 ```
 
 A provider configuration where output path for .wsb file is specified
 ```hcl
-provider "wsb" {
+provider "windows-sandbox" {
   path = "C:\\Windows\\Temp"
 }
 ```
 
 
 
-## Resource: `wsb_configuration`
+## Resource: `windows-sandbox_configuration`
 
-The `wsb_configuration` resource is used to create a new Windows Sandbox configuration.
+The `windows-sandbox_configuration` resource is used to create a new Windows Sandbox configuration.
 
 ### Example Usage
 
@@ -50,7 +50,7 @@ locals {
   ]
 }
 
-resource "wsb_configuration" "example" {
+resource "windows-sandbox_configuration" "example" {
   name        = "example-configuration"
   path        = "C:\\Windows\\Temp"
   virtual_gpu = false
@@ -74,7 +74,7 @@ resource "wsb_configuration" "example" {
 
 ```
 
-## Resource: `wsb_logon_script`
+## Resource: `windows-sandbox_logon_script`
 
 This resource helps you build logon command scripts that run when Windows Sandbox starts up.
 The resource has the following capabilities:
@@ -86,7 +86,7 @@ The resource has the following capabilities:
 
 ### Example Usage
 ```hcl
-resource "wsb_logon_script" "example_configuration" {
+resource "windows-sandbox_logon_script" "example_configuration" {
   name            = "example-configuration"
   scoop_packages  = ["vcredist2022"]
   winget_packages = ["nvim"]
@@ -96,29 +96,29 @@ resource "wsb_logon_script" "example_configuration" {
 }
 ```
 
-## Data Source: `wsb_configuration`
+## Data Source: `windows-sandbox_configuration`
 
-The `wsb_configuration` data source allows you to retrieve existing Windows Sandbox configurations.
+The `windows-sandbox_configuration` data source allows you to retrieve existing Windows Sandbox configurations.
 
 ### Example Usage
 
 The following data source will open a Windows Sandbox configuration file named `example_wsb.wsb` file located in the default path specified in the provider configuration.
 
 ```hcl
-data "wsb_configuration" "example" {
+data "windows-sandbox_configuration" "example" {
   name = "example_wsb"
 }
 ```
 
 
-## Data Source: `wsb_context`
+## Data Source: `windows-sandbox_context`
 
-The `wsb_context` data source provides contextual paths for various folders in the Windows Sandbox environment.
+The `windows-sandbox_context` data source provides contextual paths for various folders in the Windows Sandbox environment.
 
 ### Example Usage
 
 ```hcl
-data "wsb_context" "example" {
+data "windows-sandbox_context" "example" {
 
 }
 ```
@@ -136,23 +136,23 @@ locals {
     for member in local.team_members : 
     member => [
       {
-        host_folder    = data.wsb_context.example[member].user_downloads_folder
-        sandbox_folder = data.wsb_context.example[member].sandbox_container_user_downloads_folder
+        host_folder    = data.windows-sandbox_context.example[member].user_downloads_folder
+        sandbox_folder = data.windows-sandbox_context.example[member].sandbox_container_user_downloads_folder
         read_only      = false
       }
     ]
   }
 }
 
-data "wsb_context" "example" {
+data "windows-sandbox_context" "example" {
   for_each           = toset(local.team_members)
   username              = each.value
   users_folder          = "C:\\Users" 
   downloads_folder_name = "Downloads" 
 }
 
-# Create a separate wsb_configuration for each team member
-resource "wsb_configuration" "team" {
+# Create a separate windows-sandbox_configuration for each team member
+resource "windows-sandbox_configuration" "team" {
   for_each           = toset(local.team_members)
   name               = "playground-${lower(each.value)}"
   path               = "./"

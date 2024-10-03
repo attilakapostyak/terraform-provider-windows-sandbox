@@ -1,6 +1,6 @@
-# Resource `wsb_logon_script`
+# Resource `windows-sandbox_logon_script`
 
-The `logon_script` resource allows you to manage Windows Sandbox wsb configuration files by defining logon scripts and package installations. This resource is particularly useful when used in conjunction with the `wsb_configuration` resource, as its attributes can be leveraged to create mapped folders in the Windows Sandbox environment. By utilizing the `logon_script` resource, you can automate the setup of your sandbox environment, including installing packages and running custom scripts, while also providing the necessary content for mapped folders.
+The `logon_script` resource allows you to manage Windows Sandbox wsb configuration files by defining logon scripts and package installations. This resource is particularly useful when used in conjunction with the `windows-sandbox_configuration` resource, as its attributes can be leveraged to create mapped folders in the Windows Sandbox environment. By utilizing the `logon_script` resource, you can automate the setup of your sandbox environment, including installing packages and running custom scripts, while also providing the necessary content for mapped folders.
 
 
 ## Argument Reference
@@ -22,7 +22,7 @@ The `logon_script` resource allows you to manage Windows Sandbox wsb configurati
 ## Example Usage
 
 ```hcl
-resource "wsb_logon_script" "example" {
+resource "windows-sandbox_logon_script" "example" {
   name = "example"
 
   pre_installation_scripts = <<-EOT

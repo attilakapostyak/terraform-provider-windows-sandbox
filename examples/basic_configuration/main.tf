@@ -1,15 +1,15 @@
 terraform {
   required_providers {
-    wsb = {
+    windows-sandbox = {
       source = "attilakapostyak/windows-sandbox"
     }
   }
 }
 
-provider "wsb" {
+provider "windows-sandbox" {
 }
 
-resource "wsb_configuration" "example" {
+resource "windows-sandbox_configuration" "example" {
   path        = "./"
   name        = "basic_configuration"
   audio_input = true

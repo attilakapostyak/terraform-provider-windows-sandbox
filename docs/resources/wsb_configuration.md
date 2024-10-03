@@ -1,4 +1,4 @@
-# Resource `wsb_configuration`
+# Resource `windows-sandbox_configuration`
 
 This resource manages a Windows Sandbox configuration file (.wsb) with customizable options such as networking, GPU, folder mapping, and more.
 
@@ -38,8 +38,8 @@ Each entry in the `mapped_folders` set consists of the following fields:
 ### Resource Example Usage
 
 ```hcl
-# Example configuration for wsb_configuration
-resource "wsb_configuration" "example" {
+# Example configuration for windows-sandbox_configuration
+resource "windows-sandbox_configuration" "example" {
   name     = "example_config"
   path     = "C:\\path\\to\\sandbox_config"
   networking = true
@@ -53,3 +53,4 @@ resource "wsb_configuration" "example" {
     read_only      = false
   }
 }
+```

@@ -5,14 +5,14 @@ To install this provider, copy and paste this code into your Terraform configura
 ```hcl
 terraform {
   required_providers {
-    wsb = {
+    windows-sandbox = {
       source  = "attilakapostyak/windows-sandbox"
       version = "<version>"
     }
   }
 }
 
-provider "wsb" {  
+provider "windows-sandbox" {  
   path = "<output_path>"
 }
 ```
@@ -30,10 +30,12 @@ You should see the following marking the successful plugin installation:
 
 ```shell
 [...]
+Initializing the backend...
+
 Initializing provider plugins...
-- Finding registry.example.com/attilakapostyak/windows-sandbox versions matching ">= 0.1.0"...
-- Installing registry.example.com/attilakapostyak/windows-sandbox v0.1.0...
-- Installed registry.example.com/attilakapostyak/windows-sandbox v0.1.0 (unauthenticated)
+- Finding latest version of attilakapostyak/windows-sandbox...
+- Installing attilakapostyak/windows-sandbox v0.1.1...
+- Installed attilakapostyak/windows-sandbox v0.1.1 (...)
 
 Terraform has been successfully initialized!
 [...]

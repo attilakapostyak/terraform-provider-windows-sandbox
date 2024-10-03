@@ -160,7 +160,7 @@ func (r *LogonScriptResource) ImportState(ctx context.Context, req resource.Impo
 }
 
 func BuildLogonCommandScript(data *LogonScriptResourceModel) string {
-	baseScript := "powershell -ExecutionPolicy Unrestricted -Command \"# Generated with Terraform wsb_logon_script." + data.Name.ValueString() + "  \nstart powershell {-noexit -command \" [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%s')) | Out-File %s ; . %s \" } \" "
+	baseScript := "powershell -ExecutionPolicy Unrestricted -Command \"# Generated with Terraform windows-sandbox_logon_script." + data.Name.ValueString() + "  \nstart powershell {-noexit -command \" [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('%s')) | Out-File %s ; . %s \" } \" "
 
 	var sb strings.Builder
 

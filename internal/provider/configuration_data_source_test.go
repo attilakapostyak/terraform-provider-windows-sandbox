@@ -21,15 +21,15 @@ func TestAccConfigurationDataSource(t *testing.T) {
 			{
 				Config: NewBasicWSB(directory),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("data.wsb_configuration.main", "network", "true"),
-					resource.TestCheckResourceAttr("data.wsb_configuration.main", "virtual_gpu", "true"),
-					resource.TestCheckResourceAttr("data.wsb_configuration.main", "logon_command", "explorer.exe C:\\Users\\WDAGUtilityAccount\\Downloads"),
-					resource.TestCheckResourceAttr("data.wsb_configuration.main", "audio_input", "true"),
-					resource.TestCheckResourceAttr("data.wsb_configuration.main", "video_input", "true"),
-					resource.TestCheckResourceAttr("data.wsb_configuration.main", "protected_client", "true"),
-					resource.TestCheckResourceAttr("data.wsb_configuration.main", "printer_redirection", "true"),
-					resource.TestCheckResourceAttr("data.wsb_configuration.main", "clipboard_redirection", "true"),
-					resource.TestCheckResourceAttr("data.wsb_configuration.main", "memory", "4096"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_configuration.main", "network", "true"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_configuration.main", "virtual_gpu", "true"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_configuration.main", "logon_command", "explorer.exe C:\\Users\\WDAGUtilityAccount\\Downloads"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_configuration.main", "audio_input", "true"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_configuration.main", "video_input", "true"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_configuration.main", "protected_client", "true"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_configuration.main", "printer_redirection", "true"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_configuration.main", "clipboard_redirection", "true"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_configuration.main", "memory", "4096"),
 				),
 			},
 		},
@@ -65,5 +65,5 @@ func NewBasicWSB(directory string) string {
 	os.WriteFile(wsb_filename, []byte(config), 0644)
 	wsb_filename = "basic-sandbox.wsb"
 
-	return fmt.Sprintf("data \"wsb_configuration\" \"main\" {\n  name = \"basic-sandbox\"\n path = \"%s\"\n}", strings.ReplaceAll(directory, "\\", "\\\\"))
+	return fmt.Sprintf("data \"windows-sandbox_configuration\" \"main\" {\n  name = \"basic-sandbox\"\n path = \"%s\"\n}", strings.ReplaceAll(directory, "\\", "\\\\"))
 }

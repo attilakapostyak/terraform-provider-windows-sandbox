@@ -1,12 +1,12 @@
 terraform {
   required_providers {
-    wsb = {
+    windows-sandbox = {
       source = "attilakapostyak/windows-sandbox"
     }
   }
 }
 
-provider "wsb" {
+provider "windows-sandbox" {
 }
 
 locals {
@@ -14,7 +14,7 @@ locals {
 }
 
 # Create a context for each team member
-data "wsb_context" "example" {
+data "windows-sandbox_context" "example" {
   for_each              = toset(local.team_members)
   username              = each.value
   users_folder          = "H:\\Users"
@@ -22,5 +22,5 @@ data "wsb_context" "example" {
 }
 
 output "all_contexts" {
-  value = data.wsb_context.example
+  value = data.windows-sandbox_context.example
 }

@@ -15,12 +15,12 @@ func TestAccContextDataSource(t *testing.T) {
 			{
 				Config: testAccContextDataSourceConfig,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("data.wsb_context.main", "user_profile_folder", "C:\\Users\\JohnDoe"),
-					resource.TestCheckResourceAttr("data.wsb_context.main", "user_downloads_folder", "C:\\Users\\JohnDoe\\Downloads"),
-					resource.TestCheckResourceAttr("data.wsb_context.main", "sandbox_users_folder", "C:\\Users"),
-					resource.TestCheckResourceAttr("data.wsb_context.main", "sandbox_container_username", "WDAGUtilityAccount"),
-					resource.TestCheckResourceAttr("data.wsb_context.main", "sandbox_container_user_profile_folder", "C:\\Users\\WDAGUtilityAccount"),
-					resource.TestCheckResourceAttr("data.wsb_context.main", "sandbox_container_user_downloads_folder", "C:\\Users\\WDAGUtilityAccount\\Downloads"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_context.main", "user_profile_folder", "C:\\Users\\JohnDoe"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_context.main", "user_downloads_folder", "C:\\Users\\JohnDoe\\Downloads"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_context.main", "sandbox_users_folder", "C:\\Users"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_context.main", "sandbox_container_username", "WDAGUtilityAccount"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_context.main", "sandbox_container_user_profile_folder", "C:\\Users\\WDAGUtilityAccount"),
+					resource.TestCheckResourceAttr("data.windows-sandbox_context.main", "sandbox_container_user_downloads_folder", "C:\\Users\\WDAGUtilityAccount\\Downloads"),
 				),
 			},
 		},
@@ -28,7 +28,7 @@ func TestAccContextDataSource(t *testing.T) {
 }
 
 const testAccContextDataSourceConfig = `
-data "wsb_context" "main" {
+data "windows-sandbox_context" "main" {
 	username              = "JohnDoe"     
 	users_folder          = "C:\\Users"   
 	downloads_folder_name = "Downloads" 
